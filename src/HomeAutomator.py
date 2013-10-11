@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from WiringPin import WiringPin
 from collections import OrderedDict
 from strogonanoff_sender import send_command
@@ -21,19 +21,6 @@ def all_plugs():
         return out
 
 
-def get_html():
-        out = ""
-        for key, value in plugs.iteritems():
-            out = out + """
-                    <a href="/?channel={channel}&button={button}&state=on">
-                    <input type="button" value="On"></a>
-                    {name}
-                    <a href="/?channel={channel}&button={button}&state=off">
-                    <input type="button" value="Off"></a><br />
-                    """.format(name=value, channel=key[0], button=key[1])
-        return out
-
-
 def perform_action(params):
         if params:
             for i in range(1,6):
@@ -52,7 +39,7 @@ def index():
             params['button'] = int(request.args['button'])
             params['state'] = True if request.args['state'] == 'on' else False
             perform_action(params)
-        return get_html()
+        return render_template("template.html", plugs=plugs)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)

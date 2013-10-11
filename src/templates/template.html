@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery UI Button - Default functionality</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script>
+        $(function() {
+            $( "a" )
+            .button()
+        });
+    </script>
+</head>
+<body>
+    {% for key, value in plugs.iteritems() %}
+        <a href="/?channel={{ key[0] }}&button={{ key[1] }}&state=on">On</a>
+        {{value}}
+        <a href="/?channel={{ key[0] }}&button={{ key[1] }}&state=off">Off</a><br />
+    {% endfor %}
+</body>
+</html>
