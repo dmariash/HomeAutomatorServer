@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block body %}
+<textarea rows="20" cols="50" name="yaml" form="editor">{{ yaml }}</textarea>
+<form action="/saveplugs" id="editor">
+<input type="submit">
+</form>
+{% endblock %}

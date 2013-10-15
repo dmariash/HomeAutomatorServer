@@ -1,0 +1,15 @@
+- name: Bedroom Light
+  channel: 1
+  button: 1
+- name: Bedroom Speakers
+  channel: 1
+  button: 2
+- name: Lounge Cabinet
+  channel: 1
+  button: 3
+- name: Lounge Light
+  channel: 1
+  button: 4
+- name: Conservatory Light
+  channel: 2
+  button: 1

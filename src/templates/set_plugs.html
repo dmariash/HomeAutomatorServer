@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block body %}
+{% for plug in plugs %}
+    <a href="/setplugs?channel={{ plug.channel }}&button={{ plug.button }}&state=on">On</a>
+    {{ plug.name }}
+    <a href="/setplugs?channel={{ plug.channel }}&button={{ plug.button }}&state=off">Off</a><br />
+{% endfor %}
+{% endblock %}
