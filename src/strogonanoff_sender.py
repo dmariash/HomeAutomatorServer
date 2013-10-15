@@ -41,17 +41,8 @@ def send(pin_number, state_list, pulse_width):
      end_time = time()
      for state in state_list:
          end_time = end_time + pulse_width
-         pin.set_value(state)
+         pin_number.set_value(state)
          busy_wait_until(end_time)
-
-# still not fast enough
-def quick2wire_send(pin_number, state_list, pulse_width):
-    with exported(Pin(pin_number, Pin.Out)) as pin:
-        end_time = time()
-        for state in state_list:
-            end_time = end_time + pulse_width
-            pin.value = state
-            busy_wait_until(end_time)
 
 
 def send_command(pin, channel, button, on, pulse_width = default_pulse_width):

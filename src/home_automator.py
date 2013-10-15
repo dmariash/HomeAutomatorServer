@@ -57,4 +57,4 @@ def index():
     return render_template('set_plugs.html', pagetitle='Set Plugs', plugs=yaml.load(open('./plugs.yaml', 'r')))
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080, debug=True)
