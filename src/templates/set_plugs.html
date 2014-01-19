@@ -1,8 +1,27 @@
 {% extends "base.html" %}
-{% block body %}
+{% block contents %}
+<table class="table table-striped">
+<colgroup>
+       <col span="1" style="width: 30%;">
+       <col span="1" style="width: 40%;">
+       <col span="1" style="width: 30%;">
+    </colgroup>
 {% for plug in plugs %}
-    <a href="/setplugs?channel={{ plug.channel }}&button={{ plug.button }}&state=on">On</a>
-    {{ plug.name }}
-    <a href="/setplugs?channel={{ plug.channel }}&button={{ plug.button }}&state=off">Off</a><br />
+    <tr>
+    <td>
+    <a href="/setplugs?channel={{ plug.channel }}&button={{ plug.button }}&state=on">
+    <button type="button" class="btn btn-success btn-block">On</button>
+    </a>
+    </td>
+    <td>
+    <b>{{ plug.name }}</b>
+    </td>
+    <td>
+    <a href="/setplugs?channel={{ plug.channel }}&button={{ plug.button }}&state=off">
+    <button ype="button" class="btn btn-danger btn-block">Off</button>
+    </a>
+    </td>
+    </tr>
 {% endfor %}
+</table>
 {% endblock %}
